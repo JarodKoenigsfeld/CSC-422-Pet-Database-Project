@@ -43,6 +43,10 @@ public class PetDatabase extends Database{
 		menu.printFooter(rows);
 	} //end of DisplayDatabase();
 
+	//Takes a string, and loops through the database. Each Pet object has the getName() method called for checking.
+	//Each time it finds a pet with a matching age, it increments a variable "Found" by 1.
+	//If no pets are found, it has a special printout to show the database failed to find a match.
+	//Input: A string to search for the age, and a Menu to render the output.
 	public void searchDatabaseByName(String nameForSearch, Menu menu) {
 		int found = 0;
 		menu.printHeader();
@@ -67,6 +71,7 @@ public class PetDatabase extends Database{
 	//Takes an int, and loops through the database. Each Pet object has the getAge() method called for checking.
 	//Each time it finds a pet with a matching age, it increments a variable "Found" by 1.
 	//If no pets are found, it has a special printout to show the database failed to find a match.
+	//Input: An int to search for the age, and a Menu to render the output.
 	public void searchDatabaseByAge(int ageForSearch, Menu menu) {
 		int found = 0;
 		menu.printHeader();
@@ -85,11 +90,15 @@ public class PetDatabase extends Database{
 		menu.printFooter(found);
 	} //End of searchDatabaseByAge();
 
+	//Updates the specified entry using provided setAge and setName methods.
+	//Input: An int for the array index, a String for the new name, and an int for the age.
 	public void updateEntry(int indexForSearch, String newName, int newAge) {
 		database[indexForSearch].setAge(newAge);
 		database[indexForSearch].setName(newName);
 	}//End of updatePet()
-
+	
+	//Deletes the specified entry, and uses a loop to fill in the gap.
+	//Input: An int for the array index.
 	public void deleteEntry(int toDelete) {
 		System.out.println("Deleting "+database[toDelete].getName() + " " + database[toDelete].getAge());
 		//Sets the array's index to null.

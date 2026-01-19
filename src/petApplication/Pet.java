@@ -10,22 +10,25 @@ public class Pet extends Animal{
 	int maxID = 999;
 	int maxNameLength = 10;
 
+	//Returns the pet's name.
 	public String getName() {
 		//System.out.println(name);
 		return name;
 	}
-
-
+	
+	//Returns the pet's age.
 	public int getAge() {
 		//System.out.println(age);
 		return age;
 	}
 
+	//Returns the pet's ID.
 	public int getID() {
 		//System.out.println(ID);
 		return ID;
 	}
 
+	//Sets the pet's name.
 	public void setName(String newName) {
 		this.name = newName;
 		//In case a string is too long.
@@ -33,15 +36,16 @@ public class Pet extends Animal{
 			this.name = newName.substring(0, maxNameLength);
 		}
 	}
-
-
+	
+	//Sets the pet's ID.
 	public void setID(int newID) {
 		this.ID = newID;
 		if(newID > maxID) {
 			this.ID = maxID;
 		}
 	}
-
+	
+	//Sets the pet's age.
 	public void setAge(int newAge) {
 		this.age = newAge;
 		if(newAge > maxAge) {

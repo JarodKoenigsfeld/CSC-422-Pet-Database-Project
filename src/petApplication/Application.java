@@ -88,6 +88,8 @@ public class Application {
 		}
 	}
 
+	//updatePets() updates a specified pet.
+	//Input: A database for editing, an ID for the index, and an Input object to tokenize and update the new name.
 	public void updatePets(PetDatabase db, int ID, Input input) {
 		System.out.printf("Please provide a new name and age for the pet.");
 		input.tokenize(scanner.nextLine());
