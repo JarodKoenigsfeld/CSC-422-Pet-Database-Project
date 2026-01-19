@@ -11,8 +11,8 @@ public class Menu {
 		System.out.println("1. Display Table");
 		System.out.println("2. Add Pet");
 		System.out.println("3. Edit a Pet (TBD)");
-		System.out.println("4. Search by Name (TBD)");
-		System.out.println("5. Search by Age (TBD)");
+		System.out.println("4. Search by Name");
+		System.out.println("5. Search by Age");
 		System.out.println("6. Delete a Pet (TBD)");
 		System.out.println("7. Exit");
 		System.out.print("Your choice: ");

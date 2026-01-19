@@ -43,12 +43,12 @@ public class Application {
 
 			case 4:
 				//Searches by name
-				System.out.println("Not implemented!");
+				db.searchDatabaseByName(input.getNameForSearch(scanner), menu);
 				continue;
 
 			case 5:
 				//Searches by age
-				System.out.println("Not implemented!");
+				db.searchDatabaseByAge(input.getAgeForSearch(scanner), menu);
 				continue;
 
 			case 6:
@@ -84,7 +84,7 @@ public class Application {
 				return;
 			}
 			//Uses the addToDatabase function of the database we specify, uses Input's getName and getAge methods.
-			databaseToEdit.addToDatabase(input.getName(), input.getAge());
+			databaseToEdit.addToDatabase(input.getInputName(), input.getInputAge());
 			petsToAdd++;
 		}
 	}

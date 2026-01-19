@@ -39,8 +39,7 @@ public class PetDatabase extends Database{
 		return -1;
 	}
 
-
-	//Display the database, using the display functions found in 
+	//Display the database, using the display functions found in the menu class.
 	public void displayDatabase(Menu menu) {
 		menu.printHeader();
 		int rows = 0;
@@ -55,6 +54,48 @@ public class PetDatabase extends Database{
 		}
 		menu.printFooter(rows);
 	} //end of DisplayDatabase();
+	
+	public void searchDatabaseByName(String nameForSearch, Menu menu) {
+		int found = 0;
+		menu.printHeader();
+		for (int i = 0; i < database.length; i++) {
+			if (database[i] == null) {
+				continue;
+			}
+			//This converts nameForSearch into lowercase characters, then it converts the name of the Pet at position i in the database into lowercase characters.
+			//If they match, it prints the row.
+			//In pseudocode, "if name.lower() == database[i].lower(), then printrow(database[i])"
+			if (nameForSearch.toLowerCase().equals(database[i].getName().toLowerCase()) == true) {
+				menu.printRow(database[i].getID(), database[i].getName(), database[i].getAge());
+				found++;
+			}
+		}
+		if (found == 0) {
+			menu.printInvalidRow();
+		}
+		menu.printFooter(found);
+	} //End of searchDatabaseByName()
+	
+	//Takes an int, and loops through the database. Each Pet object has the getAge() method called for checking.
+	//Each time it finds a pet with a matching age, it increments a variable "Found" by 1.
+	//If no pets are found, it has a special printout to show the database failed to find a match.
+	public void searchDatabaseByAge(int ageForSearch, Menu menu) {
+		int found = 0;
+		menu.printHeader();
+		for (int i = 0; i < database.length; i++) {
+			if (database[i] == null) {
+				continue;
+			}
+			if (database[i].getAge() == ageForSearch) {
+				menu.printRow(database[i].getID(), database[i].getName(), database[i].getAge());
+				found++;
+			}
+		}
+		if (found == 0) {
+			menu.printInvalidRow();
+		}
+		menu.printFooter(found);
+	} //End of searchDatabaseByAge();
 
 	public void updateEntry(int indexForSearch, String newName, int newAge) {
 		database[indexForSearch].setAge(newAge);

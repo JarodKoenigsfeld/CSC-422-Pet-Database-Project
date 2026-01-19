@@ -10,16 +10,32 @@ public class Input {
 		tokens = input.split("\\s+");
 	}
 
-	public String getName() {
+	public String getInputName() {
 		return tokens[0];
 	}
 
-	public int getAge() {
+	public int getInputAge() {
 		return Integer.parseInt(tokens[1]);
 	}
 
+	//helper method to detect when the user has typed "done".
 	public boolean isDone() {
-		return this.getName().toLowerCase().equals("done");
+		return this.getInputName().toLowerCase().equals("done");
+	}
+	
+	public int getAgeForSearch(Scanner scanner) {
+		System.out.println("What age would you like to search for? ");
+		return Integer.parseInt(scanner.nextLine());
+	}
+
+	public String getNameForSearch(Scanner scanner) {
+		System.out.println("What name would you like to search for?");
+		return scanner.nextLine();
+	}
+
+	public int getIDForSearch(Scanner scanner) {
+		System.out.println("What is the ID you would like to search for?");
+		return Integer.parseInt(scanner.nextLine());
 	}
 
 	//Not a literal cursor! Just tells the application which choice the user selects, like a cursor clicks on an icon.
