@@ -94,13 +94,22 @@ public class PetDatabase extends Database{
 		System.out.println("Deleting "+database[toDelete].getName() + " " + database[toDelete].getAge());
 		//Sets the array's index to null.
 		database[toDelete] = null;
+		
 		//Creating a temp array and temp index for the loop we're about to go into.
 		Pet[] temp = new Pet[length];
 		int tempIndex = 0;
+		
 		//Loop to condense the database's IDs, so that the empty index isn't in the middle.
+		//This loop goes over the entire database, and adds each non-null to a temp array.
+		//It then runs the setID() method to conform their ID to the index of the array.
 		for(int i = 0; i < database.length; i++) {
+			if (database[i] == null) {
+				continue;
+			}
 			temp[tempIndex] = database[i];
+			temp[tempIndex].setID(tempIndex);
 			tempIndex++;
+			
 		}
 		database = temp;
 	}//End of deletePet()
