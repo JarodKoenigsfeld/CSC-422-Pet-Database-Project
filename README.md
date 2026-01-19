@@ -2,11 +2,14 @@
 Week 1 Assignment for CSC-422, Software Engineering.
 
 # Design notes:
-The program is composed of 6 classes:
-Pet - Pet objects have a name, age, and ID.
-PetDatabase - Creates an array to store Pet objects, and has the logic needed to 
-Input - Handles user input, chiefly the user selecting options and doing data entry.
-Menu - Handles displaying user data, including headers and footers.
+The program is composed of 6 classes:  
+  
+**Pet** - Pet objects have a name, age, and ID.  
+**PetDatabase** - Creates an array to store Pet objects, and has the logic needed to add, update, and remove entries.  
+**Input** - Handles user input, chiefly the user selecting options and doing data entry.  
+**Menu** - Handles displaying user data, including headers and footers.  
+**Application** - Combines all of these other classes into a usable application.  
+**Main** - Creates and runs an instance of the application.  
 
 To better demonstrate object-oriented design, the classes Pet and PetDatabase extend abstract classes. These classes are Animal and Database, respectively. This means the program could, in the future, be expanded to accommodate different databases with different functionality. For example, a livestock system or zoo management.
 
@@ -27,10 +30,6 @@ Alternatively, you could import this into a Java IDE such as NetBeans, Eclipse, 
 
 Type 1 to view all pets in the database.
 
-Type 2 to add pets. You'll be prompted to provide the pet's name and age on a single line. Type "done" to stop adding pets. Pet names have maximum length of **ten** characters, and a maximum age of **9999**
-
-Type 4 to search for pets by name. You'll be prompted to type the name you wish to search for.
-
-Type 5 to search for pets by age. You'll be prompted to type the age you wish to search for.
+Type 2 to add pets. You'll be prompted to provide the pet's name and age on a single line. Type "done" to stop adding pets. Pet names have maximum length of **ten** characters, and a maximum age of **9999*.
 
 Type 7 to exit.
