@@ -44,4 +44,22 @@ public class Menu {
 		System.out.printf("|%-5s | %-25s | %-5s|%n", "N/A", "N/A", "N/A");
 	}
 
+	public void displayIndexSearchOptions(Database db, int mode) {
+		db.displayDatabase(this);
+		switch(mode) {
+		//This menu is called in the main application loop.
+		//The user hits 3 to update, and 6 to delete.
+		case 3:
+			System.out.printf("What is the ID you would like to update? ");
+			break;
+		case 6:
+			System.out.printf("What is the ID you would like to delete? ");
+			break;
+		default:
+			System.out.printf("What is the ID you would like to search for? ");
+			break;
+		}
+
+	}
+
 }

@@ -34,7 +34,6 @@ public class Input {
 	}
 
 	public int getIDForSearch(Scanner scanner) {
-		System.out.println("What is the ID you would like to search for?");
 		return Integer.parseInt(scanner.nextLine());
 	}
 

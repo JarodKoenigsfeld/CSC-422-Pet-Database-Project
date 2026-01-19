@@ -16,18 +16,6 @@ public class PetDatabase extends Database{
 		}
 	} //end of addPet();
 
-	//Debug command to fill the table with generic Pets.
-	public void debugPopulate() {
-
-		for (int i = 0; i < database.length; i++) {
-
-			if(database[i]== null) {
-
-				database[i] = new Pet(i, "Test"+i, i%2);
-			}
-		}
-	} //end of debugPopulate();
-
 	//Gets first available index.
 	public int getFirstAvailableIndex() {
 		for (int i = 0; i < database.length; i++) {
@@ -54,7 +42,7 @@ public class PetDatabase extends Database{
 		}
 		menu.printFooter(rows);
 	} //end of DisplayDatabase();
-	
+
 	public void searchDatabaseByName(String nameForSearch, Menu menu) {
 		int found = 0;
 		menu.printHeader();
@@ -75,7 +63,7 @@ public class PetDatabase extends Database{
 		}
 		menu.printFooter(found);
 	} //End of searchDatabaseByName()
-	
+
 	//Takes an int, and loops through the database. Each Pet object has the getAge() method called for checking.
 	//Each time it finds a pet with a matching age, it increments a variable "Found" by 1.
 	//If no pets are found, it has a special printout to show the database failed to find a match.
@@ -103,16 +91,18 @@ public class PetDatabase extends Database{
 	}//End of updatePet()
 
 	public void deleteEntry(int toDelete) {
+		System.out.println("Deleting "+database[toDelete].getName() + " " + database[toDelete].getAge());
 		//Sets the array's index to null.
 		database[toDelete] = null;
+		//Creating a temp array and temp index for the loop we're about to go into.
+		Pet[] temp = new Pet[length];
+		int tempIndex = 0;
 		//Loop to condense the database's IDs, so that the empty index isn't in the middle.
-		for(int i = toDelete+1; i < database.length; i++) {
-			database[i-1] = database[i];
-			database[i].setID(i-1);
+		for(int i = 0; i < database.length; i++) {
+			temp[tempIndex] = database[i];
+			tempIndex++;
 		}
-		//After condensing the database down, this last entry will always be a duplicate.
-		//So we can delete it.
-		database[database.length-1] = null;
+		database = temp;
 	}//End of deletePet()
 
 

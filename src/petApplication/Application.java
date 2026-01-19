@@ -19,9 +19,6 @@ public class Application {
 
 			switch (cursor) {
 
-			case 0:
-				db.debugPopulate();
-
 			case 1:
 				//Calls the displayDatabase() method in the database class.
 				//It uses the display functions found in the menu class.
@@ -38,22 +35,24 @@ public class Application {
 
 			case 3:
 				//Updates a pet
-				System.out.println("Not implemented!");
+				menu.displayIndexSearchOptions(db, cursor);
+				updatePets(db, input.getIDForSearch(scanner), input);
 				continue;
 
 			case 4:
 				//Searches by name
-				db.searchDatabaseByName(input.getNameForSearch(scanner), menu);
+				db.searchDatabaseByName(input.getNameForSearch(scanner),menu);
 				continue;
 
 			case 5:
 				//Searches by age
-				db.searchDatabaseByAge(input.getAgeForSearch(scanner), menu);
+				db.searchDatabaseByAge(input.getAgeForSearch(scanner),menu);
 				continue;
 
 			case 6:
 				//Deletes a pet
-				System.out.println("Not implemented!");
+				menu.displayIndexSearchOptions(db, cursor);
+				db.deleteEntry(input.getIDForSearch(scanner));
 				continue;
 
 			case 7:
@@ -87,6 +86,13 @@ public class Application {
 			databaseToEdit.addToDatabase(input.getInputName(), input.getInputAge());
 			petsToAdd++;
 		}
+	}
+
+	public void updatePets(PetDatabase db, int ID, Input input) {
+		System.out.printf("Please provide a new name and age for the pet.");
+		input.tokenize(scanner.nextLine());
+		db.updateEntry(ID, input.getInputName(), input.getInputAge());
+		return;	
 	}
 
 	//Used to print an error for invalid option selection.
