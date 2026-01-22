@@ -21,12 +21,9 @@ public class Application {
 			cursor = input.setCursor(scanner);
 
 			switch (cursor) {
-			
 			case 0:
 				for (int i = 0; i < 5; i++) {
-					
 					db.readLine(i);
-					
 				}
 
 			case 1:
@@ -74,11 +71,9 @@ public class Application {
 				//Stops user from typing invalid entries
 				invalidOption();
 				continue;
-
-
 			}
-		}
-	}
+		}//end of switch case
+	}//end of runApplicationLoop
 
 	//Method for adding pets to a database.
 	//input: A database object that will receive the new pets. An Input object to tokenize the input, and an int to count how many are added.

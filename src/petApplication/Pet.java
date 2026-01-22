@@ -15,7 +15,7 @@ public class Pet extends Animal{
 		//System.out.println(name);
 		return name;
 	}
-	
+
 	//Returns the pet's age.
 	public int getAge() {
 		//System.out.println(age);
@@ -36,7 +36,7 @@ public class Pet extends Animal{
 			this.name = newName.substring(0, maxNameLength);
 		}
 	}
-	
+
 	//Sets the pet's ID.
 	public void setID(int newID) {
 		this.ID = newID;
@@ -44,7 +44,7 @@ public class Pet extends Animal{
 			this.ID = maxID;
 		}
 	}
-	
+
 	//Sets the pet's age.
 	public void setAge(int newAge) {
 		this.age = newAge;

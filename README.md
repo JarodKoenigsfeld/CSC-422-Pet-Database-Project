@@ -28,8 +28,20 @@ Alternatively, you could import this into a Java IDE such as NetBeans, Eclipse, 
 
 # How to Use This Program:
 
+The program will automatically save and load from a file in src called saveData.txt.
+It will create that file if it doesn't see it.
+Make sure the program has permission to read and write to files, or this will not work!
+
 Type 1 to view all pets in the database.
 
-Type 2 to add pets. You'll be prompted to provide the pet's name and age on a single line. Type "done" to stop adding pets. Pet names have maximum length of **ten** characters, and a maximum age of **9999*.
+Type 2 to add pets. You'll be prompted to provide the pet's name and age on a single line. Type "done" to stop adding pets. Pet names have maximum length of **ten** characters, and a maximum age of **20**.
+
+Type 3 to edit a pet. You'll be prompted to enter an array index. You'll be prompted to enter a new name and age.
+
+Press 4 to search the database by name. You'll be prompted to enter a name, and it'll show you all pets that match that name.
+
+Press 5 to search by age. You'll be prompted to enter an age, and it'll show you all pets that match that age.
+
+Press 6 to delete a pet. You'll be prompted to enter the ID of the pet you wish to delete.
 
 Type 7 to exit.

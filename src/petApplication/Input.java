@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Input {
 	private String[] tokens;
-	
+
 	//Splits a string into tokens, dividing them along any spaces.
 	public void tokenize(String input) {
 		tokens = input.split("\\s+");
@@ -25,13 +25,13 @@ public class Input {
 	public boolean isDone() {
 		return this.getInputName().toLowerCase().equals("done");
 	}
-	
+
 	//Helper method to print a specific message when searching by age.
 	public int getAgeForSearch(Scanner scanner) {
 		System.out.println("What age would you like to search for? ");
 		return Integer.parseInt(scanner.nextLine());
 	}
-	
+
 	//Helper method to print a specific message when searching by name.
 	public String getNameForSearch(Scanner scanner) {
 		System.out.println("What name would you like to search for?");

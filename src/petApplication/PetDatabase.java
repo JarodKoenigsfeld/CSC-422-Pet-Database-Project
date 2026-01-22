@@ -26,13 +26,13 @@ public class PetDatabase extends Database{
 		//Return -1 if array is full.
 		return -1;
 	}
-	
+
 	//Formats the line in a human-readable way. Also lets it be saved and tokenized later.
 	public String readLine(int index) {
 		String line = database[index].getName() + " " +  database[index].getAge();
 		System.out.println(line);
 		return line;
-		
+
 	}
 
 	//Display the database, using the display functions found in the menu class.
@@ -104,18 +104,16 @@ public class PetDatabase extends Database{
 		database[indexForSearch].setAge(newAge);
 		database[indexForSearch].setName(newName);
 	}//End of updatePet()
-	
+
 	//Deletes the specified entry, and uses a loop to fill in the gap.
 	//Input: An int for the array index.
 	public void deleteEntry(int toDelete) {
 		System.out.println("Deleting "+database[toDelete].getName() + " " + database[toDelete].getAge());
 		//Sets the array's index to null.
 		database[toDelete] = null;
-		
 		//Creating a temp array and temp index for the loop we're about to go into.
 		Pet[] temp = new Pet[length];
 		int tempIndex = 0;
-		
 		//Loop to condense the database's IDs, so that the empty index isn't in the middle.
 		//This loop goes over the entire database, and adds each non-null to a temp array.
 		//It then runs the setID() method to conform their ID to the index of the array.
@@ -126,7 +124,6 @@ public class PetDatabase extends Database{
 			temp[tempIndex] = database[i];
 			temp[tempIndex].setID(tempIndex);
 			tempIndex++;
-			
 		}
 		database = temp;
 	}//End of deletePet()
