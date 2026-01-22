@@ -6,7 +6,7 @@ public class Pet extends Animal{
 	private String name;
 	private int age;
 
-	int maxAge = 9999;
+	int maxAge = 20;
 	int maxID = 999;
 	int maxNameLength = 10;
 

@@ -6,11 +6,14 @@ public class Application {
 	private PetDatabase db = new PetDatabase();
 	private Input input = new Input();
 	private Menu menu = new Menu();
+	private FileHandler fh = new FileHandler();
 	Scanner scanner = new Scanner(System.in);
 	private int cursor = 0;
 
 	//The application runs off this loop.
 	public void runApplicationLoop() {
+		fh.openOrCreateFile("src", "saveData");
+		fh.openDatabaseFromFile("src", "saveData", db, input);
 		//While loop terminates if cursor = 7.
 		//Even if the menu.exit() fails, it should terminate.
 		while (cursor != 7) {
@@ -18,6 +21,13 @@ public class Application {
 			cursor = input.setCursor(scanner);
 
 			switch (cursor) {
+			
+			case 0:
+				for (int i = 0; i < 5; i++) {
+					
+					db.readLine(i);
+					
+				}
 
 			case 1:
 				//Calls the displayDatabase() method in the database class.
@@ -105,6 +115,7 @@ public class Application {
 
 	//Prints a message, then ends the program.
 	public void exit() {
+		fh.saveDatabaseToFile("src", "saveData", db);
 		System.out.println("Goodbye!");
 		System.exit(0);
 	}
