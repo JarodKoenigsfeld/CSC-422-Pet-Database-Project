@@ -2,11 +2,12 @@
 Week 1 Assignment for CSC-422, Software Engineering.
 
 # Design notes:
-The program is composed of 6 classes:  
+The program is composed of 7 classes:  
   
 **Pet** - Pet objects have a name, age, and ID.  
 **PetDatabase** - Creates an array to store Pet objects, and has the logic needed to add, update, and remove entries.  
 **Input** - Handles user input, chiefly the user selecting options and doing data entry.  
+**FileHandler** - Does everything related to saving and loading the file saveData.txt, which stores pet data.
 **Menu** - Handles displaying user data, including headers and footers.  
 **Application** - Combines all of these other classes into a usable application.  
 **Main** - Creates and runs an instance of the application.  
@@ -31,6 +32,8 @@ Alternatively, you could import this into a Java IDE such as NetBeans, Eclipse, 
 The program will automatically save and load from a file in src called saveData.txt.
 It will create that file if it doesn't see it.
 Make sure the program has permission to read and write to files, or this will not work!
+
+This database holds a maximum of five pets.
 
 Type 1 to view all pets in the database.
 
