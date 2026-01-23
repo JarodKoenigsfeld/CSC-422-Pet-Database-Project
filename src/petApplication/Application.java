@@ -59,7 +59,7 @@ public class Application {
 			case 6:
 				//Deletes a pet
 				menu.displayIndexSearchOptions(db, cursor);
-				db.deleteEntry(input.getIDForSearch(scanner));
+				deletePet(db,input.getIDForSearch(scanner));
 				continue;
 
 			case 7:
@@ -73,6 +73,7 @@ public class Application {
 				continue;
 			}
 		}//end of switch case
+		
 	}//end of runApplicationLoop
 
 	//Method for adding pets to a database.
@@ -83,23 +84,47 @@ public class Application {
 			System.out.printf("Name the new pet and provide their age, or type 'done' to exit: ");
 			//Uses Input's tokenize() method to create tokens out of the next lines.
 			input.tokenize(scanner.nextLine());
+			if(input.containsTooManyTokens() == true) {
+				System.out.println("Invalid input, expected 2 tokens, got 3");
+				continue;
+			}
 			if (input.isDone() == true) {
 				System.out.println(petsToAdd + " pets were added.");
 				return;
 			}
 			//Uses the addToDatabase function of the database we specify, uses Input's getName and getAge methods.
-			databaseToEdit.addToDatabase(input.getInputName(), input.getInputAge());
-			petsToAdd++;
+			try {
+				databaseToEdit.addToDatabase(input.getInputName(), input.getInputAge());
+				petsToAdd++;
+			} catch  (ArrayIndexOutOfBoundsException e) {
+				System.out.println("Error: " + input.getInputName()+ " is not a valid input.");				
+			}
 		}
 	}
 
 	//updatePets() updates a specified pet.
 	//Input: A database for editing, an ID for the index, and an Input object to tokenize and update the new name.
 	public void updatePets(PetDatabase db, int ID, Input input) {
+		if(0 > ID || ID > db.getLength()) {
+			System.out.println("Index does not exist!");
+			return;
+		}
 		System.out.printf("Please provide a new name and age for the pet.");
 		input.tokenize(scanner.nextLine());
+		if(input.containsTooManyTokens() == true) {
+			System.out.println("Invalid input, expected 2 tokens, got 3");
+			return;
+		}
 		db.updateEntry(ID, input.getInputName(), input.getInputAge());
 		return;	
+	}
+	
+	public void deletePet(PetDatabase db, int ID) {
+		if(0 > ID || ID > db.getLength()) {
+			System.out.println("Index does not exist!");
+			return;
+		}
+		db.deleteEntry(ID);
 	}
 
 	//Used to print an error for invalid option selection.

@@ -11,10 +11,18 @@ public class Input {
 		tokens = input.split("\\s+");
 	}
 
+	public boolean containsTooManyTokens() {
+		if(tokens.length > 2) {
+			return true;
+		}
+		return false;
+	}
+	
 	//Returns the 0th token, for this program that is always going to be a name.
 	public String getInputName() {
 		return tokens[0];
 	}
+	
 
 	//returns the 1st token, for this program that is always going to be an age.
 	public int getInputAge() {

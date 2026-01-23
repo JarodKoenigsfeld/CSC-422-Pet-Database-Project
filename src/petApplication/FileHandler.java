@@ -36,8 +36,12 @@ public class FileHandler {
 	public void saveDatabaseToFile(String filePath, String fileName, PetDatabase db) {
 		try (FileWriter myWriter = new FileWriter(filePath+"/"+fileName+".txt")) {
 			//For each entry in the database, loop through.
-			for (int i = 0; i < 5; i++) {
+			for (int i = 0; i <= 4; i++) {
+				try {
 				myWriter.write(db.readLine(i)+"\r\n");
+				}catch(NullPointerException e) {
+					continue;
+				}
 			}
 			System.out.println("Successfully wrote to the file.");
 		} catch (IOException e) {

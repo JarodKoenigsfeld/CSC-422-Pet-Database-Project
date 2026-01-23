@@ -34,6 +34,7 @@ public class Pet extends Animal{
 		//In case a string is too long.
 		if(newName.length() > maxNameLength) {
 			this.name = newName.substring(0, maxNameLength);
+			System.out.println("Error: Name was too long! It has been trimmed to " + name);
 		}
 	}
 
@@ -50,6 +51,7 @@ public class Pet extends Animal{
 		this.age = newAge;
 		if(newAge > maxAge) {
 			this.age = maxAge;
+			System.out.println("Error: Age was too high! It has been clamped to " + age);
 		}
 	}
 

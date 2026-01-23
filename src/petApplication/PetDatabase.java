@@ -2,16 +2,18 @@ package petApplication;
 
 public class PetDatabase extends Database{
 	private int length = 5;
-	private int currentID = 0;
 	Pet[] database = new Pet[length];
 
+	public int getLength() {
+		return length;
+	}
+	
 	//Adds a pet to the database.
 	public void addToDatabase(String name, int age) {
 		if (getFirstAvailableIndex() == -1) {
 			System.out.println("Array full!");
 		} else {
-			Pet newPet = new Pet(currentID, name, age);
-			currentID++;
+			Pet newPet = new Pet(getFirstAvailableIndex(), name, age);
 			database[getFirstAvailableIndex()] = newPet;
 		}
 	} //end of addPet();
