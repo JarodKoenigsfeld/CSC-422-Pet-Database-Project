@@ -51,7 +51,7 @@ public class Pet extends Animal{
 		this.age = newAge;
 		if(newAge > maxAge) {
 			this.age = maxAge;
-			System.out.println("Error: Age was too high! It has been clamped to " + age);
+			System.out.println("Error: Age was too high! It has been clamped to " + maxAge);
 		}
 	}
 
@@ -67,11 +67,13 @@ public class Pet extends Animal{
 
 		//In case a string is too long.
 		if(inputName.length() > maxNameLength) {
+			System.out.println("Error: Name was too long! It has been trimmed to " + name);
 			this.name = inputName.substring(0, maxNameLength);
 		}
 
 		//Prevents age from going above 4 digits.
 		if(inputAge > maxAge) {
+			System.out.println("Error: Age was too high! It has been clamped to " + age);
 			this.age = maxAge;
 		}
 	}
